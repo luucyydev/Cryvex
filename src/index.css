@@ -223,9 +223,9 @@
 
 /* Wallet Adapter Styles */
 .wallet-adapter-button {
-  background-color: white !important;
+  background-color: black !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  color: black !important;
+  color: white !important;
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
@@ -240,11 +240,12 @@
   width: 100% !important;
   transition: all 0.3s !important;
   backdrop-filter: blur(16px) !important;
+  transform: scale(1) !important;
 }
 
 .wallet-adapter-button:hover {
-  background-color: rgba(255, 255, 255, 0.9) !important;
   transform: scale(1.02) !important;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1) !important;
 }
 
 .wallet-adapter-button-trigger {
@@ -343,11 +344,6 @@
   background-color: #09090b !important;
   border-radius: 50% !important;
   padding: 8px !important;
-  transition: all 0.3s !important;
-}
-
-.wallet-adapter-modal-button-close:hover {
-  background-color: #18181b !important;
 }
 
 .wallet-adapter-modal-title {
@@ -362,6 +358,8 @@
   font-size: 14px !important;
   font-weight: 500 !important;
   padding: 12px 20px !important;
+  background-color: black !important;
+  color: white !important;
 }
 
 .wallet-adapter-modal.wallet-adapter-modal-fade-in {
