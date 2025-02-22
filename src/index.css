@@ -271,11 +271,11 @@
 }
 
 .wallet-adapter-button:nth-of-type(2):hover {
-  background-color: #f8f8f8 !important;
+  background-color: #09090b !important;
 }
 
 .wallet-adapter-button-trigger {
-  background-color: #09090b !important;
+  background-color: #f8f8f8 !important;
   color: white !important;
 }
 
