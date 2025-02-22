@@ -348,11 +348,17 @@
 }
 
 .wallet-adapter-modal-wrapper {
-  background-color: #09090b !important; /* Changed from rgb(24, 24, 27) to match zinc-950 */
+  background-color: #09090b !important; /* zinc-950 */
+  background: #09090b !important; /* Redundant, but ensures override */
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-radius: 16px !important;
   color: white !important;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Add this new style to force background color */
+.wallet-adapter-modal-wrapper * {
+  background-color: #09090b !important;
 }
 
 .wallet-adapter-modal-button-close {
