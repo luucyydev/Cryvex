@@ -242,7 +242,7 @@ function Home() {
   return (
     <div className="relative min-h-screen bg-zinc-950 overflow-hidden">
       <a 
-        href="https://x.com/oxynize" 
+        href="https://x.com/oxynizedev" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed top-6 left-6 z-50 w-8 h-8 text-white/70 hover:text-white transition-colors"
