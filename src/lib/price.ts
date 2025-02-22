@@ -13,19 +13,19 @@ class PriceManager {
   private readonly CACHE_DURATION = 3600000; // 1 hour
   private readonly ENDPOINTS = [
     {
-      name: 'CoinGecko',
-      url: 'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd&include_24hr_change=true',
-      parser: (data: any) => ({
-        price: data.solana.usd,
-        change24h: data.solana.usd_24h_change || 0
-      })
-    },
-    {
       name: 'Jupiter',
       url: 'https://price.jup.ag/v4/price?ids=SOL',
       parser: (data: any) => ({
         price: data.data.SOL.price,
         change24h: 0 // Jupiter doesn't provide 24h change
+      })
+    },
+    {
+      name: 'CoinGecko',
+      url: 'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd&include_24hr_change=true',
+      parser: (data: any) => ({
+        price: data.solana.usd,
+        change24h: data.solana.usd_24h_change || 0
       })
     },
     {
@@ -72,17 +72,18 @@ class PriceManager {
       const response = await this.fetchWithTimeout(endpoint.url);
       
       if (!response.ok) {
-        if (response.status === 429) { // Rate limit
-          const retryAfter = response.headers.get('Retry-After');
-          if (retryAfter) {
-            await new Promise(resolve => setTimeout(resolve, parseInt(retryAfter) * 1000));
-          }
-        }
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      return endpoint.parser(data);
+      const result = endpoint.parser(data);
+
+      // Validate the result
+      if (!result || typeof result.price !== 'number' || isNaN(result.price) || result.price <= 0) {
+        throw new Error('Invalid price data received');
+      }
+
+      return result;
     } catch (error) {
       logger.warn(`Failed to fetch from ${endpoint.name}:`, error);
       return null;
@@ -102,12 +103,12 @@ class PriceManager {
         try {
           const result = await this.fetchEndpoint(endpoint);
           if (result) {
+            // Cache the successful result
             this.cache.set('solana', { ...result, timestamp: Date.now() });
             return result;
           }
         } catch (error) {
-          logger.warn(`Failed to fetch from ${endpoint.name}:`, error);
-          continue;
+          continue; // Try next endpoint
         }
       }
 
@@ -118,8 +119,9 @@ class PriceManager {
       }
 
       // Final fallback
-      logger.warn('Using fallback price data');
-      return { price: 100, change24h: 0 };
+      const fallbackPrice = { price: 100, change24h: 0 };
+      this.cache.set('solana', { ...fallbackPrice, timestamp: Date.now() });
+      return fallbackPrice;
     } catch (error) {
       logger.error('Error in getSolanaPrice:', error);
       
