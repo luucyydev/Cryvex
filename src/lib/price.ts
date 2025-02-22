@@ -10,10 +10,7 @@ interface CoinGeckoPrice {
 class PriceManager {
   private static instance: PriceManager;
   private cache: Map<string, { price: number; change24h: number; timestamp: number }> = new Map();
-  private readonly CACHE_DURATION = 60000; // 1 minute
-  private retryCount = 0;
-  private readonly MAX_RETRIES = 3;
-  private readonly RETRY_DELAY = 1000; // 1 second
+  private readonly CACHE_DURATION = 3600000; // 1 hour
   private readonly ENDPOINTS = [
     {
       name: 'CoinGecko',
@@ -41,10 +38,7 @@ class PriceManager {
     }
   ];
 
-  private constructor() {
-    // Initialize with a polling interval to keep cache fresh
-    setInterval(() => this.updateCache(), this.CACHE_DURATION);
-  }
+  private constructor() {}
 
   static getInstance(): PriceManager {
     if (!PriceManager.instance) {
@@ -92,21 +86,6 @@ class PriceManager {
     } catch (error) {
       logger.warn(`Failed to fetch from ${endpoint.name}:`, error);
       return null;
-    }
-  }
-
-  private async updateCache(): Promise<void> {
-    for (const endpoint of this.ENDPOINTS) {
-      try {
-        const result = await this.fetchEndpoint(endpoint);
-        if (result) {
-          this.cache.set('solana', { ...result, timestamp: Date.now() });
-          return;
-        }
-      } catch (error) {
-        logger.warn(`Cache update failed for ${endpoint.name}:`, error);
-        continue;
-      }
     }
   }
 
