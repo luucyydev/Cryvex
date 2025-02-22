@@ -223,7 +223,7 @@
 
 /* Wallet Adapter Styles */
 .wallet-adapter-button {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: #09090b !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   color: white !important;
   cursor: pointer !important;
@@ -243,12 +243,12 @@
 }
 
 .wallet-adapter-button:hover {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #18181b !important;
   transform: scale(1.02) !important;
 }
 
 .wallet-adapter-button-trigger {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: #09090b !important;
   color: white !important;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .wallet-adapter-button[disabled] {
-  background: rgba(255, 255, 255, 0.02) !important;
+  background: #09090b !important;
   color: rgba(255, 255, 255, 0.3) !important;
   cursor: not-allowed !important;
 }
@@ -291,7 +291,7 @@
   right: 0 !important;
   margin: 0 !important;
   list-style: none !important;
-  background: rgba(255, 255, 255, 0.02) !important;
+  background: #09090b !important;
   backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-radius: 12px !important;
@@ -332,7 +332,7 @@
 }
 
 .wallet-adapter-modal-wrapper {
-  background-color: rgb(24, 24, 27) !important;
+  background-color: #09090b !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   border-radius: 16px !important;
   color: white !important;
@@ -340,14 +340,14 @@
 }
 
 .wallet-adapter-modal-button-close {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: #09090b !important;
   border-radius: 50% !important;
   padding: 8px !important;
   transition: all 0.3s !important;
 }
 
 .wallet-adapter-modal-button-close:hover {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #18181b !important;
 }
 
 .wallet-adapter-modal-title {
