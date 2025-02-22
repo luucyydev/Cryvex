@@ -4,8 +4,7 @@
 
 /* Set dark background and prevent overflow */
 @layer base {
-  html,
-  body {
+  html, body {
     @apply bg-zinc-950;
     height: 100vh;
     margin: 0;
@@ -21,33 +20,18 @@
 }
 
 @keyframes float-slow {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate(30px, 20px) rotate(5deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(30px, 20px) rotate(5deg); }
 }
 
 @keyframes float-medium {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate(-20px, 30px) rotate(-5deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 30px) rotate(-5deg); }
 }
 
 @keyframes float-fast {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate(25px, -25px) rotate(3deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(25px, -25px) rotate(3deg); }
 }
 
 @keyframes fadeIn {
@@ -87,19 +71,19 @@
   .animate-float-slow {
     animation: float-slow 8s ease-in-out infinite;
   }
-
+  
   .animate-float-medium {
     animation: float-medium 7s ease-in-out infinite;
   }
-
+  
   .animate-float-fast {
     animation: float-fast 6s ease-in-out infinite;
   }
-
+  
   .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
   }
-
+  
   .animate-slide-up {
     animation: slideUp 1s ease-out 0.3s forwards;
     opacity: 0;
@@ -218,7 +202,7 @@
   .crypto-grid {
     flex-wrap: wrap;
   }
-
+  
   .crypto-card {
     width: calc(50% - 0.75rem);
     min-width: 300px;
@@ -230,7 +214,7 @@
     flex-direction: column;
     align-items: center;
   }
-
+  
   .crypto-card {
     width: 100%;
     max-width: 500px;
@@ -239,9 +223,9 @@
 
 /* Wallet Adapter Styles */
 .wallet-adapter-button {
-  background-color: #040405 !important;
+  background-color: white !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  color: white !important;
+  color: black !important;
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
@@ -259,24 +243,13 @@
 }
 
 .wallet-adapter-button:hover {
-  background-color: #18181b !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   transform: scale(1.02) !important;
 }
 
-/* Modified styles for the second button (Connect Wallet) */
-.wallet-adapter-button:nth-of-type(2) {
+.wallet-adapter-button-trigger {
   background-color: white !important;
   color: black !important;
-  border: none !important;
-}
-
-.wallet-adapter-button:nth-of-type(2):hover {
-  background-color: #09090b !important;
-}
-
-.wallet-adapter-button-trigger {
-  background-color: #f8f8f8 !important;
-  color: white !important;
 }
 
 .wallet-adapter-button:not([disabled]):focus-visible {
@@ -284,7 +257,7 @@
 }
 
 .wallet-adapter-button[disabled] {
-  background: #f8f8f8 !important;
+  background: #09090b !important;
   color: rgba(255, 255, 255, 0.3) !important;
   cursor: not-allowed !important;
 }
@@ -394,4 +367,3 @@
 .wallet-adapter-modal.wallet-adapter-modal-fade-in {
   opacity: 1 !important;
 }
-
