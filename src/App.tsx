@@ -64,6 +64,15 @@ const initialCryptoData: CryptoData[] = [
   }
 ];
 
+const CustomWalletButton = () => {
+  const { connected } = useWallet();
+  return (
+    <WalletMultiButton className="!w-full !px-6 !py-4 !bg-white !text-black !rounded-xl !font-medium !text-lg hover:!bg-white/90 hover:!scale-[1.02] !transition-all !duration-300 !flex !items-center !justify-center !gap-2">
+      {connected ? "Connected" : "Connect Wallet (Faster, Detailed analysis)"}
+    </WalletMultiButton>
+  );
+};
+
 function Home() {
   const navigate = useNavigate();
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -460,7 +469,7 @@ function Home() {
                     </div>
                   </div>
                   <div className="flex justify-center">
-                    <WalletMultiButton className="!w-full !px-6 !py-4 !bg-white !text-black !rounded-xl !font-medium !text-lg hover:!bg-white/90 hover:!scale-[1.02] !transition-all !duration-300 !flex !items-center !justify-center !gap-2" />
+                    <CustomWalletButton />
                   </div>
                 </div>
               </form>
