@@ -402,3 +402,40 @@
   opacity: 1 !important;
 }
 
+/* Target the modal container specifically */
+.wallet-adapter-modal-container {
+  background-color: #09090b !important;
+}
+
+/* Target the modal content container */
+.wallet-adapter-modal-content {
+  background-color: #09090b !important;
+}
+
+/* Target the list container */
+.wallet-adapter-modal-list-more {
+  background-color: #09090b !important;
+}
+
+/* Target each wallet button container */
+.wallet-adapter-modal-list {
+  background-color: #09090b !important;
+}
+
+/* Target the white inner container */
+.wallet-adapter-modal-middle {
+  background-color: #09090b !important;
+}
+
+/* Force all possible containers to be dark */
+div[class*="wallet-adapter"][class*="container"],
+div[class*="wallet-adapter"][class*="content"],
+div[class*="wallet-adapter"][class*="middle"] {
+  background-color: #09090b !important;
+}
+
+/* Target any white backgrounds */
+.wallet-adapter-modal [class*="wallet-adapter"] {
+  background-color: #09090b !important;
+}
+
