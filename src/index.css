@@ -246,56 +246,11 @@
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Target the content container */
-.wallet-adapter-modal-container {
-  background-color: #09090b !important;
-}
-
-/* Target the button container */
-.wallet-adapter-modal-button-container {
-  background-color: #09090b !important;
-}
-
-/* Target each wallet button */
+/* Keep wallet buttons white for contrast */
 .wallet-adapter-button {
-  background-color: #09090b !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  color: white !important;
-}
-
-/* Target the list items */
-.wallet-adapter-modal-list {
-  background-color: #09090b !important;
-}
-
-.wallet-adapter-modal-list-more {
-  background-color: #09090b !important;
-}
-
-/* Target the wallet items */
-.wallet-adapter-modal-list li {
-  background-color: #09090b !important;
-}
-
-/* Override any white backgrounds */
-.wallet-adapter-modal-wrapper [class*="wallet-adapter-"] {
-  background-color: #09090b !important;
-}
-
-/* Force all direct children to have the same background */
-.wallet-adapter-modal-wrapper > * {
-  background-color: #09090b !important;
-}
-
-/* Target the buttons specifically */
-.wallet-adapter-modal-list .wallet-adapter-button {
-  background-color: #09090b !important;
-}
-
-.wallet-adapter-button {
-  background-color: rgba(255, 255, 255, 0.02) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  color: white !important;
+  background-color: white !important;
+  border: none !important;
+  color: #09090b !important; /* Dark text on white background */
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
@@ -309,29 +264,32 @@
   border-radius: 12px !important;
   width: 100% !important;
   transition: all 0.3s !important;
-  backdrop-filter: blur(16px) !important;
 }
 
 .wallet-adapter-button:hover {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #f4f4f5 !important; /* Slightly darker white on hover */
   transform: scale(1.02) !important;
 }
 
-.wallet-adapter-button-trigger {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+/* Modal title should be white */
+.wallet-adapter-modal-title {
   color: white !important;
 }
 
-.wallet-adapter-button:not([disabled]):focus-visible {
-  outline-color: rgba(255, 255, 255, 0.1) !important;
+/* Close button styling */
+.wallet-adapter-modal-button-close {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  transition: all 0.3s !important;
+  color: white !important;
 }
 
-.wallet-adapter-button[disabled] {
-  background: rgba(255, 255, 255, 0.02) !important;
-  color: rgba(255, 255, 255, 0.3) !important;
-  cursor: not-allowed !important;
+.wallet-adapter-modal-button-close:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Status text (Detected) styling */
 .wallet-adapter-button-end-icon,
 .wallet-adapter-button-start-icon,
 .wallet-adapter-button-end-icon img,
