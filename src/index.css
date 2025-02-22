@@ -284,7 +284,7 @@
 }
 
 .wallet-adapter-button[disabled] {
-  background: #09090b !important;
+  background: #f8f8f8 !important;
   color: rgba(255, 255, 255, 0.3) !important;
   cursor: not-allowed !important;
 }
