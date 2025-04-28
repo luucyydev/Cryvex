@@ -300,7 +300,7 @@ function Home() {
             style={{ transformStyle: 'preserve-3d' }}
           >
             <h1 className="text-7xl font-bold tracking-tight text-white text-center mb-4">
-              Oxyn
+              Cryvex
             </h1>
             
             <p className="text-white/70 text-center text-lg mb-8">
